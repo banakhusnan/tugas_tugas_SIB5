@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    width: 300px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.container {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+}
+
+.bio-card {
+    width: 600px;
+    height: auto;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #3cb043;
+    color: whitesmoke;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bio-card__detail {
+    display: flex;
+    flex-direction: column;
+    row-gap: .3rem;
+}
+
+.bio-card__image {
+    position: absolute;
+    right: 0;
+    top: 0%;
+}
