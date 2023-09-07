@@ -1,0 +1,49 @@
+<script>
+    // ada pelanggan membeli barang elektronik
+    // barang barangnya misal ada TV => harga 3juta, motor => 12 juta, kulkas => 4 juta
+    // Tambahkan proses diskon dari setiap barang
+    // lalu cetak hasil pembelian barang dan totalnya
+
+    let pembeli = "Bana"
+    let barang = "Motor"
+    let harga_satuan = 0
+
+    switch (barang) {
+        case "TV":
+            harga_satuan = 3000000
+            break;
+        case "Motor":
+            harga_satuan = 12000000
+            break;
+        case "Kulkas":
+            harga_satuan = 4000000
+            break;
+        default:
+            harga_satuan = 0
+            break;
+    }
+
+    // Deklarasi variabel proses
+    let jmlBeli = 3
+    let bruto = harga_satuan * jmlBeli
+    let ppn = bruto * 0.11
+
+    // Membuat minimal diskon dari pembelian produk diatas
+    let diskon = 0
+    if (barang == "TV") diskon = 0.3 * bruto
+    else if (barang == "Motor") diskon = 0.2 * bruto
+    else diskon = 0.05 * bruto
+
+    let hasil_diskon = bruo * diskon
+    // Cetak proses diatas
+
+    document.write("<h1>Data Pembelian</h1>")
+    document.write("Pembeli : " + pembeli)
+    document.write("Barang : " + barang)
+    document.write("Jumlah Barang : " + jmlBeli)
+    document.write("Harga Satuan : " + harga_satuan)
+    document.write("Total Harga : " + bruto)
+    document.write("Diskon : " + diskon)
+    document.write("PPN : " + ppn)
+    document.write("Total harga dipotong diskon : " + hasil_diskon)
+</script>
