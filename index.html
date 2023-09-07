@@ -1,0 +1,26 @@
+<script>
+    let pegawai = "Ridwan"
+    let jabatan = "Manager"
+    let status = "Menikah"
+
+    document.write("Nama : " + pegawai)
+    document.write("<br>Jabatan : " + jabatan)
+    document.write("<br>Status : " + status)
+
+    let gajiPokok
+    if (jabatan === "Manager") {
+        gajiPokok = 15000000 // 15jt
+    } else if (jabatan === "Asisten Manager") {
+        gajiPokok = 10000000 // 10jt
+    } else if (jabatan === "Staff") {
+        gajiPokok = 5000000 // 5jt
+    }
+
+    let tunjanganJabatan = 0.15 * gajiPokok
+    let bpjs = 0.10 * gajiPokok
+    let tunjanganKeluarga = status === "Menikah" ? 0.2 * gajiPokok : 0
+
+    let gaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga
+
+    document.write("<br>Atas nama " + pegawai + " sebagai " + jabatan + " dengan total gaji yaitu Rp." + gaji)
+</script>
