@@ -1,0 +1,91 @@
+<script>
+    let p1 = { 'nama': "Pegawai1" }
+    let p2 = { 'nama': "Pegawai2" }
+    let p3 = { 'nama': "Pegawai3" }
+    let p4 = { 'nama': "Pegawai4" }
+    let p5 = { 'nama': "Pegawai5" }
+    let p6 = { 'nama': "Pegawai6" }
+    let p7 = { 'nama': "Pegawai7" }
+    let p8 = { 'nama': "Pegawai8" }
+    let p9 = { 'nama': "Pegawai9" }
+    let p10 = { 'nama': "Pegawai10" }
+
+    let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10]
+
+    for (let i = 0; i < pegawai.length; i++) {
+        if (i < 2) {
+            pegawai[i].jabatan = 'manager'
+            pegawai[i].gajiPokok = 15000000 // 15jt
+        }
+        else if (i >= 2 && i < 5) {
+            pegawai[i].jabatan = 'asisten manager'
+            pegawai[i].gajiPokok = 10000000 // 10jt
+        }
+        else if (i >= 5 && i < 8) {
+            pegawai[i].jabatan = 'supervisor'
+            pegawai[i].gajiPokok = 7000000 // 7jt
+        }
+        else {
+            pegawai[i].jabatan = 'staff'
+            pegawai[i].gajiPokok = 4000000 // 4jt
+        }
+
+        pegawai[i].tunjanganJabatan = 0.2 * pegawai[i].gajiPokok
+        pegawai[i].tunjanganKesehatan = 0.1 * pegawai[i].gajiPokok
+        pegawai[i].gajiKotor = pegawai[i].gajiPokok + pegawai[i].tunjanganJabatan + pegawai[i].tunjanganKesehatan
+
+        if (i % 2 == 0) {
+            pegawai[i].agama = "Muslim"
+
+            if (pegawai[i].gajiKotor > 7000000) {
+                pegawai[i].zakatProfesi = 0.25 * pegawai[i].gajiKotor
+                pegawai[i].takeHomePay = pegawai[i].gajiKotor - pegawai[i].zakatProfesi
+            } else {
+                pegawai[i].zakatProfesi = '-'
+                pegawai[i].takeHomePay = '-'
+            }
+        }
+        else {
+            pegawai[i].agama = "Non Muslim"
+            pegawai[i].zakatProfesi = '-'
+            pegawai[i].takeHomePay = '-'
+        }
+    }
+
+    console.log(pegawai);
+</script>
+<table style="width: 100%;">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Jabatan</th>
+            <th>Agama</th>
+            <th>Gaji Pokok</th>
+            <th>Tunjangan Jabatan</th>
+            <th>Tunjangan Kesehatan</th>
+            <th>Gaji Kotor</th>
+            <th>Zakat Profesi</th>
+            <th>Take Home Pay</th>
+        </tr>
+    </thead>
+    <tbody>
+        <script>
+            let no = 1
+            for (const peg of pegawai) {
+                document.write(`<tr>
+                            <td>${no++}</td>
+                            <td>${peg.nama}</td>
+                            <td>${peg.jabatan}</td>
+                            <td>${peg.agama}</td>
+                            <td>${peg.gajiPokok}</td>
+                            <td>${peg.tunjanganJabatan}</td>
+                            <td>${peg.tunjanganKesehatan}</td>
+                            <td>${peg.gajiKotor}</td>
+                            <td>${peg.zakatProfesi}</td>
+                            <td>${peg.takeHomePay}</td>
+                        </tr>`)
+            }
+        </script>
+    </tbody>
+</table>
