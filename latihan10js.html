@@ -1,0 +1,29 @@
+<script>
+    // membuat array sederhana (array 1d)
+    var buah = ['pepaya', 'mangga', 'pisang', 'jambu'] // deklarasi array menggunakan kurung siku
+
+    buah[2] = 'jeruk'
+    // buah[3] = 'pepaya'
+
+    for (let i = 0; i < buah.length; i++) {
+        document.write("<br>" + buah[i])
+    }
+    document.write(buah)
+</script>
+<script>
+    // Array object atau array dalam array (Array 2d)
+    let p1 = { 'nama': 'Bana', 'divisi': 'SDM', 'gaji': 7000000 }
+    let p2 = { 'nama': 'Andi', 'divisi': 'HRD', 'gaji': 8000000 }
+    let p3 = { 'nama': 'Ari', 'divisi': 'Manager', 'gaji': 9000000 }
+
+    let pegawai = [p1, p2, p3]
+    for (let i = 0; i < pegawai.length; i++) {
+        document.write("<br>" + pegawai[i])
+    }
+
+    for (const p of pegawai) {
+        document.write("<br>" + p.nama)
+        document.write("<br>" + p.divisi)
+        document.write("<br>" + p.gaji)
+    }
+</script>
