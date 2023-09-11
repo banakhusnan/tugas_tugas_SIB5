@@ -1,1 +1,2 @@
-# tugas_tugas_SIB5
+# Tugas 4 Javascript
+Tugas ke 4 kali ini yaitu membuat membuat form Toko Online untuk pelanggan yg ingin membeli produk menggunakan Javascript dan untuk tampilan saya menirukan tampilan milik Google Form, namun tidak 100% sama.
