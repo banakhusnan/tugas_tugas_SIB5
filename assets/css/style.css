@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    background-color: rgba(112, 128, 144, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.buyer-card {
+    width: 746px;
+    height: fit-content;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.buyer-card__header {
+    background-color: rgba(255, 255, 255, 0.9);;
+    padding: 1.5rem;
+    border-top: 5px solid purple;
+    border-radius: 5px;
+    border: 1px solid rgb(170, 170, 170);
+    position: relative;
+    overflow: hidden;
+}
+
+.buyer-card__header > .border-top {
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: purple;
+}
+
+.buyer-card__header > h2 {
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.buyer-card__header > p {
+    margin: 0;
+}
+
+.buyer-card__body {
+    margin: 1rem 0;
+    background-color: rgba(255, 255, 255, 0.9);;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(170, 170, 170);
+}
+
+.buyer-card__body > .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.7rem;
+}
+
+.buyer-card__body > .input-group > label {
+    font-size: 12pt;
+    margin-bottom: 0.7rem;
+}
+
+.buyer-card__body > .input-group > input {
+    border-bottom: 1px solid rgb(170, 170, 170);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 0.5rem 0;
+    background-color: transparent;
+    width: 50%;
+}
+
+.buyer-card__body > .input-group > input:placeholder-shown {
+    font-size: 10pt;
+    letter-spacing: 0.02em;
+}
+
+.buyer-card__body > .input-group > input:focus {
+    outline: 0;
+}
+
+.buyer-card__body > .input-group > select {
+    border-bottom: 1px solid rgb(170, 170, 170);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 0.5rem 0;
+    background-color: transparent;
+    width: 50%;
+}
+
+.buyer-card__body > .input-group > select:focus {
+    outline: 0;
+}
+
+.buyer-card > form > button {
+    padding: 0.5rem 1rem;
+    border: 0;
+    background-color: purple;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px rgb(112, 128, 144);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 4 Javascript DOM</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="buyer-card">
+        <div class="buyer-card__header">
+            <div class="border-top"></div>
+
+            <h2>Toko Online</h2>
+            <p>Tugas membuat form <b>Toko Online</b> untuk pelanggan yg ingin membeli produk</p>
+        </div>
+        <form id="form">
+            <div class="buyer-card__body">
+                <div class="input-group">
+                    <label for="nama">Nama Pelanggan <font color="red">*</font></label>
+                    <input type="text" name="nama" id="nama" placeholder="Masukan Nama Pelanggan">
+                </div>
+            </div>
+            <div class="buyer-card__body">
+                <div class="input-group">
+                    <label for="produk">Produk <font color="red">*</font></label>
+                    <select name="produk" id="produk">
+                        <option value="" disabled selected>-- Pilih Produk --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buyer-card__body">
+                <div class="input-group">
+                    <label for="jumlah">Jumlah Barang <font color="red">*</font></label>
+                    <input type="number" name="jumlah" id="jumlah">
+                </div>
+            </div>
+
+            <button type="button" name="proses" onclick="pembelian()">Kirim</button>
+        </form>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
