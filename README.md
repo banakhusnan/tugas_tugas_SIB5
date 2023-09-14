@@ -1,1 +1,2 @@
-# tugas_tugas_SIB5
+# Tugas 5 Javascript
+Tugas 5 pada materi javascript kali ini yaitu membuat class yang didalamnya terdapat dua properti utama, yaitu "lokasi" dan "skala", yang digunakan untuk menyimpan informasi tentang tempat terjadinya gempa dan seberapa besar kekuatannya
