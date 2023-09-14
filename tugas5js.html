@@ -1,0 +1,34 @@
+<script>
+    class Gempa {
+        constructor(lokasi, skala) {
+            this.lokasi = lokasi
+            this.skala = skala
+        }
+
+        dampak() {
+            let dampak;
+            if (this.skala <= 2) dampak = 'Tidak Terasa'
+            else if (this.skala > 2 && this.skala <= 4) dampak = 'Bangunan Retak-Retak'
+            else if (this.skala > 4 && this.skala <= 6) dampak = 'Bangunan Roboh'
+            else dampak = "Bangunan Roboh Dan Berpotensi Tsunami"
+
+            document.write(`
+            Lokasi Gempa : ${this.lokasi} <br>
+            Skala : ${this.skala}<br>
+            Dampak : ${dampak}<br>---------------<br>
+            `)
+        }
+    }
+
+    const g1 = new Gempa("Cina", 5)
+    const g2 = new Gempa("Israel", 7)
+    const g3 = new Gempa("Tiongkok", 4)
+    const g4 = new Gempa("Hongkong", 3)
+    const g5 = new Gempa("Amerika Serikat", 1)
+
+    g1.dampak()
+    g2.dampak()
+    g3.dampak()
+    g4.dampak()
+    g5.dampak()
+</script>
