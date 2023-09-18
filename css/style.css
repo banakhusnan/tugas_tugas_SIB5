@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0f172a;
+    font-family: Roboto, sans-serif;
+    color: white;
+}
+
+.navigation {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0 2rem;
+    background-color: #0f172a;
+    border-bottom: 1px solid #020617;
+}
+
+.navigation > a {
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 700;
+    transition: ease-out 0.3s;
+}
+
+.navigation > a:hover {
+    color: #115e59;
+}
+
+.show {
+    width: 900px;
+    margin: auto;
+    padding-top: 4.5rem;
+}
+.show-card__profile, .show-card__moto-hidup, .show-card__keahlian {
+    display: none;
+}
+
+.show-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0 2rem;
+}
+
+.show-card > .show-card__home,
+.show-card > .show-card__profile,
+.show-card > .show-card__moto-hidup,
+.show-card > .show-card__keahlian {
+    width: 550px;
+    height: fit-content;
+}
+
+.show-card > .show-card__image {
+    height: 350px;
+    width: 350px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    align-self: self-start;
+}
+
+.show-card > .show-card__image > svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;
+    transform: scale(1.2);
+}
+
+.show-card > .show-card__image > img {
+    width: inherit;
+}
+
+.show-card > .show-card__profile > h1 {
+    margin-bottom: 0.3rem;
+    color: #14b8a6;
+    font-size: 50pt;
+}
+.show-card > .show-card__profile > h3 {
+    margin-bottom: 2rem;
+}
+.show-card > .show-card__profile > h4 {
+    margin-bottom: 0.5rem;
+}
+
+.show-card > .show-card__moto-hidup > h3 {
+    text-align: center;
+    font-size: 16pt;
+}
+
+.show-card > .show-card__moto-hidup > h3 > span {
+    font-size: 20pt;
+    font-family: Cambria, serif;
+    display: block;
+    margin-top: 8px;
+}
+
+.show-card > .show-card__keahlian > h3 {
+    margin-bottom: 0.5rem;
+    color: #14b8a6;
+}
+
+.show-card > .show-card__keahlian > h4 {
+    margin-bottom: 0.5rem;
+}
+
+.show-card > .show-card__keahlian > h5 {
+    margin-bottom: 0.2rem;
+}
+
+.show-card > .show-card__keahlian > ul {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.show-card > .show-card__keahlian > ul > li {
+    margin-bottom: 0.3rem;
+}
+
+.show-card > .show-card__keahlian > p {
+    margin-bottom: 2rem;
+}
