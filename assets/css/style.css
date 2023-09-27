@@ -1,0 +1,73 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Mengatur gaya pada container login-card */
+.login-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  width: 500px;
+  margin: 150px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mengatur gaya pada login-card__body */
+.login-card__body {
+  text-align: center;
+}
+
+/* Mengatur gaya pada label */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+/* Mengatur gaya pada input text dan password */
+input[type="text"],
+input[type="password"] {
+  width: 75%;
+  padding: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Mengatur gaya pada tombol Login */
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+/* Mengatur gaya pada tombol Login saat hover */
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Mengatur tampilan container */
+.container {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mengatur tampilan teks judul */
+h1 {
+  color: #007bff;
+  font-size: 24pt;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
