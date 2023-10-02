@@ -1,0 +1,52 @@
+/* CSS untuk style halaman */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* CSS untuk style tabel */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #007bff;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* CSS untuk style baris ganjil */
+tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* CSS untuk style link */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
