@@ -1,0 +1,70 @@
+-- Buat table pembelian yang references ke table produk
+CREATE TABLE pembelian (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tanggal DATE NOT NULL,
+    nomor VARCHAR(255) NOT NULL,
+    produk_id INT NOT NULL REFERENCES produk(id),
+    jumlah INT NOT NULL,
+    harga DOUBLE NOT NULL,
+    vendor_id INT NOT NULL REFERENCES vendor(id));
+
+-- table vendor yang references ke table pembelian
+CREATE TABLE vendor (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nomor VARCHAR(30) NOT NULL,
+    nama VARCHAR(30) NOT NULL,
+    kota VARCHAR(30) NOT NULL,
+    kontak VARCHAR(15) NOT NULL
+);
+
+-- isi 2 tabel berikut minimal 5 data :
+## Pembelian :
+-- Pembelian 1
+INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB001', 1, 10, 100.00, 1);
+-- Pembelian 2
+INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB002', 2, 8, 80.00, 2);
+-- Pembelian 3
+INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB003', 3, 15, 150.00, 3);
+-- Pembelian 4
+INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB004', 4, 12, 120.00, 4);
+-- Pembelian 5
+INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB005', 5, 20, 200.00, 5);
+
+Hasil :
+mysql> select * from pembelian;
++----+------------+-------+-----------+--------+-------+-----------+
+| id | tanggal    | nomor | produk_id | jumlah | harga | vendor_id |
++----+------------+-------+-----------+--------+-------+-----------+
+|  1 | 2023-10-06 | PB001 |         1 |     10 |   100 |         1 |
+|  2 | 2023-10-06 | PB002 |         2 |      8 |    80 |         2 |
+|  3 | 2023-10-06 | PB003 |         3 |     15 |   150 |         3 |
+|  4 | 2023-10-06 | PB004 |         4 |     12 |   120 |         4 |
+|  5 | 2023-10-06 | PB005 |         5 |     20 |   200 |         5 |
++----+------------+-------+-----------+--------+-------+-----------+
+5 rows in set (0.00 sec)
+
+Vendor :
+-- Vendor 1
+INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V001', 'Vendor A', 'Kota A', 'Kontak A');
+-- Vendor 2
+INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V002', 'Vendor B', 'Kota B', 'Kontak B');
+-- Vendor 3
+INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V003', 'Vendor C', 'Kota C', 'Kontak C');
+-- Vendor 4
+INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V004', 'Vendor D', 'Kota D', 'Kontak D');
+-- Vendor 5
+INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V005', 'Vendor E', 'Kota E', 'Kontak E');
+
+Hasil :
+mysql> select * from vendor;
++----+-------+----------+--------+----------+
+| id | nomor | nama     | kota   | kontak   |
++----+-------+----------+--------+----------+
+|  1 | V001  | Vendor A | Kota A | Kontak A |
+|  2 | V002  | Vendor B | Kota B | Kontak B |
+|  3 | V003  | Vendor C | Kota C | Kontak C |
+|  4 | V004  | Vendor D | Kota D | Kontak D |
+|  5 | V005  | Vendor E | Kota E | Kontak E |
++----+-------+----------+--------+----------+
+5 rows in set (0.00 sec)
+
