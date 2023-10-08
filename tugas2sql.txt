@@ -20,15 +20,15 @@ CREATE TABLE vendor (
 -- isi 2 tabel berikut minimal 5 data :
 ## Pembelian :
 -- Pembelian 1
-INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB001', 1, 10, 100.00, 1);
+INSERT INTO pembelian VALUES ('2023-10-06', 'PB001', 1, 10, 100.00, 1);
 -- Pembelian 2
-INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB002', 2, 8, 80.00, 2);
+INSERT INTO pembelian VALUES ('2023-10-06', 'PB002', 2, 8, 80.00, 2);
 -- Pembelian 3
-INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB003', 3, 15, 150.00, 3);
+INSERT INTO pembelian VALUES ('2023-10-06', 'PB003', 3, 15, 150.00, 3);
 -- Pembelian 4
-INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB004', 4, 12, 120.00, 4);
+INSERT INTO pembelian VALUES ('2023-10-06', 'PB004', 4, 12, 120.00, 4);
 -- Pembelian 5
-INSERT INTO pembelian (tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES ('2023-10-06', 'PB005', 5, 20, 200.00, 5);
+INSERT INTO pembelian VALUES ('2023-10-06', 'PB005', 5, 20, 200.00, 5);
 
 Hasil :
 mysql> select * from pembelian;
@@ -45,15 +45,15 @@ mysql> select * from pembelian;
 
 Vendor :
 -- Vendor 1
-INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V001', 'Vendor A', 'Kota A', 'Kontak A');
+INSERT INTO vendor VALUES ('V001', 'Vendor A', 'Kota A', 'Kontak A');
 -- Vendor 2
-INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V002', 'Vendor B', 'Kota B', 'Kontak B');
+INSERT INTO vendor VALUES ('V002', 'Vendor B', 'Kota B', 'Kontak B');
 -- Vendor 3
-INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V003', 'Vendor C', 'Kota C', 'Kontak C');
+INSERT INTO vendor VALUES ('V003', 'Vendor C', 'Kota C', 'Kontak C');
 -- Vendor 4
-INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V004', 'Vendor D', 'Kota D', 'Kontak D');
+INSERT INTO vendor VALUES ('V004', 'Vendor D', 'Kota D', 'Kontak D');
 -- Vendor 5
-INSERT INTO vendor (nomor, nama, kota, kontak) VALUES ('V005', 'Vendor E', 'Kota E', 'Kontak E');
+INSERT INTO vendor VALUES ('V005', 'Vendor E', 'Kota E', 'Kontak E');
 
 Hasil :
 mysql> select * from vendor;
