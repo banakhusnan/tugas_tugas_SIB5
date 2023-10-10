@@ -17,6 +17,35 @@ INSERT INTO produk (kode, nama, harga_beli, harga_jual, stok, min_stok, jenis_pr
     ('S001', 'Sirup ABC', 25000, 35000, 10, 1, 4);
 
 
+-- Lengkapi tugas mandiri dari Worksheet1
+Buat table pesanan items
+CREATE TABLE pesanan_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produk_id INT NOT NULL REFERENCES produk(id),
+    pesanan_id INT NOT NULL REFERENCES pesanan(id),
+    qty INT,
+    harga DOUBLE,
+);
+
+Buat table vendor
+CREATE TABLE vendor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomor VARCHAR(4),
+    nama VARCHAR(40),
+    kota VARCHAR(30),
+    kontak VARCHAR(30)
+);
+
+CREATE TABLE vendor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tanggal VARCHAR(45),
+    nomor VARCHAR(10),
+    produk_id INT NOT NULL REFERENCES produk(id),
+    jumlah INT(11),
+    harga DOUBLE,
+    vendor_id INT NOT NULL REFERENCES vendor(id),
+);
+
 -- Soal 2.2
 1.	Tampilkan data produk yang stoknya 3 dan 10
 >>  SELECT * from produk WHERE stok=3 OR stok=10;
