@@ -1,0 +1,234 @@
+--------------------------- Soal 3.2 ---------------------------
+1.	Berapa jumlah pelanggan yang tahun lahirnya 1998
+    select count(tgl_lahir) from pelanggan where year(tgl_lahir) = 1998;
+    +------------------+
+    | count(tgl_lahir) |
+    +------------------+
+    |                0 |
+    +------------------+
+    1 row in set (0.00 sec)
+
+2.	Berapa jumlah pelanggan perempuan yang tempat lahirnya di Jakarta
+    select count(tmp_lahir) from pelanggan where jk = 'P' and tmp_lahir = 'Jakarta';
+    +------------------+
+    | count(tmp_lahir) |
+    +------------------+
+    |                1 |
+    +------------------+
+    1 row in set (0.05 sec)
+
+3.	Berapa jumlah total stok semua produk yang harga jualnya dibawah 10rb
+    select count(harga_jual) as total_harga_jual from produk where harga_jual < 10000;
+    +------------------+
+    | total_harga_jual |
+    +------------------+
+    |                2 |
+    +------------------+
+    1 row in set (0.00 sec)
+
+4.	Ada berapa produk yang mempunyai kode awal K
+    select count(kode) as jumlah from produk where kode like "K%";
+    +--------+
+    | jumlah |
+    +--------+
+    |      0 |
+    +--------+
+    1 row in set (0.00 sec)
+
+5.	Berapa harga jual rata-rata produk yang diatas 1jt
+    select avg(harga_jual) as rata_rata from produk where harga_jual > 1000000;
+    +-----------------+
+    |    rata_rata    |
+    +-----------------+
+    |         7785000 |
+    +-----------------+
+    1 row in set (0.00 sec)
+
+6.	Tampilkan jumlah stok yang paling besar
+    select max(stok) as stok_terbesar from produk;
+    +---------------+
+    | stok_terbesar |
+    +---------------+
+    |            10 |
+    +---------------+
+    1 row in set (0.00 sec)
+
+7.	Ada berapa produk yang stoknya kurang dari minimal stok
+    select count(stok) as stok_kurang from produk where stok < min_stok;
+    +-------------+
+    | stok_kurang |
+    +-------------+
+    |           0 |
+    +-------------+
+    1 row in set (0.00 sec)
+
+8.	Berapa total asset dari keseluruhan produk
+    select count(id) as total_asset from produk;
+    +-------------+
+    | total_asset |
+    +-------------+
+    |           9 |
+    +-------------+
+    1 row in set (0.07 sec)
+
+--------------------------- Soal 3.3 ---------------------------
+1.	Tampilkan data produk : id, nama, stok dan informasi jika stok telah sampai batas minimal atau kurang dari minimum stok dengan informasi ‘segera belanja’ jika tidak ‘stok aman’.
+    select id,nama,stok,case
+        -> when stok < min_stok then "Segera Belanja"
+        -> else "Aman"
+        -> end as informasi from produk;
+    +----+------------------+------+-----------+
+    | id | nama             | stok | informasi |
+    +----+------------------+------+-----------+
+    |  1 | Televisi 21 Inch |    5 | Aman      |
+    |  2 | Televisi 40 Inch |    4 | Aman      |
+    |  3 | Meja Makan       |    4 | Aman      |
+    |  4 | Teh Kotak        |    4 | Aman      |
+    |  5 | Laptop Acer      |    2 | Aman      |
+    |  6 | Smartphone Oppo  |    3 | Aman      |
+    |  7 | Citato           |   10 | Aman      |
+    |  8 | Mie Samyang      |   10 | Aman      |
+    |  9 | Sirup ABC        |   10 | Aman      |
+    +----+------------------+------+-----------+
+    9 rows in set (0.00 sec)
+
+2.	Tampilkan data pelanggan: id, nama, umur dan kategori umur : jika umur < 17 → ‘muda’ , 17-55 → ‘Dewasa’, selainnya ‘Tua’
+    select id,nama,(year(curdate()) - year(tgl_lahir)) as umur,case
+        -> when (year(curdate()) - year(tgl_lahir)) < 17 then 'Muda'
+        -> when (year(curdate()) - year(tgl_lahir)) > 17 and (year(curdate()) - year(tgl_lahir)) < 55 then 'Dewasa'
+        -> else 'Tua'
+        -> end as kategori_umur from pelanggan;
+    +----+---------------+------+---------------+
+    | id | nama          | umur | kategori_umur |
+    +----+---------------+------+---------------+
+    |  1 | Agung Sedayu  |   13 | Muda          |
+    |  2 | Pandan Wangi  |   73 | Tua           |
+    |  3 | Sekar         |   40 | Dewasa        |
+    |  4 | Swandaru Geni |   42 | Dewasa        |
+    | 11 | Siti          |   33 | Dewasa        |
+    | 12 | Budi          |   32 | Dewasa        |
+    | 13 | Dewi          |   31 | Dewasa        |
+    | 14 | Agus          |   30 | Dewasa        |
+    | 15 | Nina          |   29 | Dewasa        |
+    | 16 | Rudi          |   28 | Dewasa        |
+    +----+---------------+------+---------------+
+    10 rows in set (0.00 sec)
+
+3.	Tampilkan data produk: id, kode, nama, dan bonus untuk kode ‘TV01’ →’DVD Player’ , ‘K001’ → ‘Rice Cooker’ selain dari diatas ‘Tidak Ada’
+    select id,kode,nama,case
+        -> when kode = 'TV01' then 'DVD Player'
+        -> when kode = 'K001' then 'Rice Cooker'
+        -> else 'Tidak Ada'
+        -> end as bonus from produk;
+    +----+------+------------------+-------------+
+    | id | kode | nama             | bonus       |
+    +----+------+------------------+-------------+
+    |  1 | TV01 | Televisi 21 Inch | DVD Player  |
+    |  2 | TV02 | Televisi 40 Inch | Tidak Ada   |
+    |  3 | M001 | Meja Makan       | Tidak Ada   |
+    |  4 | TK01 | Teh Kotak        | Tidak Ada   |
+    |  5 | LA01 | Laptop Acer      | Tidak Ada   |
+    |  6 | SO01 | Smartphone Oppo  | Tidak Ada   |
+    |  7 | C001 | Citato           | Tidak Ada   |
+    |  8 | MS01 | Mie Samyang      | Tidak Ada   |
+    |  9 | S001 | Sirup ABC        | Tidak Ada   |
+    | 10 | K001 | Komputer         | Rice Cooker |
+    +----+------+------------------+-------------+
+    10 rows in set (0.00 sec)
+
+--------------------------- Soal 3.3 ---------------------------
+1.	Tampilkan data statistik jumlah tempat lahir pelanggan
+    tmp_lahir, count(tmp_lahir) as jumlah from pelanggan group by tmp_lahir;
+    +------------+--------+
+    | tmp_lahir  | jumlah |
+    +------------+--------+
+    | Solo       |      1 |
+    | Yogyakarta |      2 |
+    | Kediri     |      2 |
+    | Jakarta    |      1 |
+    | Surabaya   |      1 |
+    | Bandung    |      1 |
+    | Semarang   |      1 |
+    | Medan      |      1 |
+    +------------+--------+
+    8 rows in set (0.00 sec)
+
+2.	Tampilkan jumlah statistik produk berdasarkan jenis produk
+    select count(id) as jumlah_barang, jenis_produk_id from produk group by jenis_produk_id;
+    +---------------+-----------------+
+    | jumlah_barang | jenis_produk_id |
+    +---------------+-----------------+
+    |             1 |               6 |
+    |             3 |               1 |
+    |             1 |               2 |
+    |             2 |               4 |
+    |             2 |               3 |
+    |             1 |               5 |
+    +---------------+-----------------+
+    6 rows in set (0.00 sec)
+
+3.	Tampilkan data pelanggan yang usianya dibawah rata usia pelanggan
+    select nama,(year(curdate()) - year(tgl_lahir)) as umur from pelanggan where (year(curdate()) - year(tgl_lahir)) < (select avg((year(curdate()) - year(tgl_lahir))) from pelanggan);
+    +--------------+------+
+    | nama         | umur |
+    +--------------+------+
+    | Agung Sedayu |   13 |
+    | Siti         |   33 |
+    | Budi         |   32 |
+    | Dewi         |   31 |
+    | Agus         |   30 |
+    | Nina         |   29 |
+    | Rudi         |   28 |
+    +--------------+------+
+    7 rows in set (0.00 sec)
+
+4.	Tampilkan data produk yang harganya diatas rata-rata harga produk
+    select nama, harga_jual from produk where harga_jual > (select avg(harga_jual) from produk);
+    +------------------+------------+
+    | nama             | harga_jual |
+    +------------------+------------+
+    | Televisi 21 Inch |    5040000 |
+    | Televisi 40 Inch |    9600000 |
+    | Laptop Acer      |    7500000 |
+    | Smartphone Oppo  |    9000000 |
+    +------------------+------------+
+    4 rows in set (0.00 sec)
+
+5.	Tampilkan data pelanggan yang memiliki kartu dimana iuran tahunan kartu diatas 90rb
+select nama,kartu_id from pelanggan where kartu_id in (select id from kartu where iuran > 90000);
++--------------+----------+
+| nama         | kartu_id |
++--------------+----------+
+| Agung Sedayu |        1 |
+| Pandan Wangi |        2 |
+| Siti         |        1 |
+| Budi         |        2 |
+| Nina         |        2 |
++--------------+----------+
+5 rows in set (0.01 sec)
+
+6.	Tampilkan statistik data produk dimana harga produknya dibawah rata-rata harga produk secara keseluruhan
+    select nama from pelanggan where kartu_id in (select id from kartu where iuran > 90000);
+    +--------------+
+    | nama         |
+    +--------------+
+    | Agung Sedayu |
+    | Pandan Wangi |
+    | Siti         |
+    | Budi         |
+    | Nina         |
+    +--------------+
+    5 rows in set (0.00 sec)
+
+7.	Tampilkan data pelanggan yang memiliki kartu dimana diskon kartu yang diberikan diatas 3%
+    select * from pelanggan where kartu_id in (select id from kartu where diskon > 0.03);
+    +----+------+--------------+------+------------+------------+------------------+----------+
+    | id | kode | nama         | jk   | tmp_lahir  | tgl_lahir  | email            | kartu_id |
+    +----+------+--------------+------+------------+------------+------------------+----------+
+    |  1 | C001 | Agung Sedayu | L    | Solo       | 2010-01-01 | sedayu@gmail.com |        1 |
+    |  2 | C002 | Pandan Wangi | P    | Yogyakarta | 1950-01-01 | wangi@gmail.com  |        2 |
+    | 11 | C005 | Siti         | P    | Jakarta    | 1990-01-01 | siti@gmail.com   |        1 |
+    | 12 | C006 | Budi         | L    | Surabaya   | 1991-02-02 | budi@gmail.com   |        2 |
+    | 15 | C009 | Nina         | P    | Semarang   | 1994-05-05 | nina@gmail.com   |        2 |
+    +----+------+--------------+------+------------+------------+------------------+----------+
+    5 rows in set (0.00 sec)
