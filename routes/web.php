@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JenisProdukController;
+use App\Http\Controllers\KartuController;
+use App\Http\Controllers\LihatNilaiController;
+use App\Http\Controllers\PagenotController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +37,13 @@ Route::get('/kondisi', function () {
 Route::get('/daftarnilai', function () {
     return view('coba.daftar');
 });
+
+Route::get('/notfound', [PagenotController::class, 'index']);
+
+Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::resource('kartu', KartuController::class);
+
+Route::get('/jenis_produk', [JenisProdukController::class, 'index']);
